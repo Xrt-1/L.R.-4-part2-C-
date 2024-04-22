@@ -10,16 +10,23 @@ namespace L.R._4_part2_C_
     {
         private int A, B, C;
         public System.EventHandler DataChanged;
+        public Model()
+        {
+            A = Properties.Settings.Default.a;
+            B = Properties.Settings.Default.b;
+            C = Properties.Settings.Default.c;
+        }
         public void setA(int a)
         {
             if (0 <= a && a <= 100)
             {
                 if (a <= B)
                 {
-                    A = a;
+                    this.A = a;
                 }
-                DataChanged.Invoke(this, null);
             }
+            DataChanged.Invoke(this, null);
+
         }
         public void setB(int b)
         {
@@ -27,16 +34,16 @@ namespace L.R._4_part2_C_
             {
                 if (b < A)
                 {
-                    A = A - (B - b);
-                    B = b;
+                    this.A = A - (B - b);
+                    this.B = b;
                     if (A < 0) A = 0;
                 }
                 else if (b <= C)
                 {
-                    B = b;
+                    this.B = b;
                 }
-                DataChanged.Invoke(this, null);
             }
+            DataChanged.Invoke(this, null);
         }
         public void setC(int c)
         {
@@ -44,23 +51,30 @@ namespace L.R._4_part2_C_
             {
                 if (c < A)
                 {
-                    B = B - (C - c);
-                    A = A - (C - c);
+                   this.B = B - (C - c);
+                   this.A = A - (C - c);
                 }
                 else if (c < B)
                 {
-                    B = B - (C - c);
+                    this.B = B - (C - c);
                 }
-                if (A<0) A = 0;
-                if (B<0) B = 0;
-                if (A>B) A = A - B;
-                C = c;
-                DataChanged.Invoke(this, null);
+                if (A>B) A = B;
+                if (A<0) this.A = 0;
+                if (B<0) this.B = 0;
+                this.C = c;
             }
+            DataChanged.Invoke(this, null);
+
         }
         public int getA() { return A; }
         public int getB() { return B; }
         public int getC() { return C; }
-
+        public void save()
+        {
+            Properties.Settings.Default.a = A;
+            Properties.Settings.Default.b = B;
+            Properties.Settings.Default.c = C;
+            Properties.Settings.Default.Save();
+        }
     }
 }
