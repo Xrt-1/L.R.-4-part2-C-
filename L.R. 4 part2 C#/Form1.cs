@@ -35,7 +35,6 @@ namespace L.R._4_part2_C_
         private void numUpDwnA_ValueChanged(object sender, EventArgs e)
         {
             model.setA(((int)(numUpDwnA.Value)));
-            tBoxTstA.Text = numUpDwnA.Value.ToString();
         }
       
 
@@ -127,11 +126,17 @@ namespace L.R._4_part2_C_
 
         private void numUpDwnA_Leave(object sender, EventArgs e)
         {
-            model.setA((int)(numUpDwnA.Value));
-            //int a = model.getA();
-            //numUpDwnA.Value = 0;
-            //numUpDwnA.Value = a;
-          
+            numUpDwnA.Text= numUpDwnA.Value.ToString();
+        }
+
+        private void numUpDwnB_Leave(object sender, EventArgs e)
+        {
+            numUpDwnB.Text= numUpDwnB.Value.ToString();
+        }
+
+        private void numUpDwnC_Leave(object sender, EventArgs e)
+        {
+            numUpDwnC.Text= numUpDwnC.Value.ToString();
         }
     }
 }

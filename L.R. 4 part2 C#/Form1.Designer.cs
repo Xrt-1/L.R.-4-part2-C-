@@ -40,8 +40,6 @@
             this.tBarA = new System.Windows.Forms.TrackBar();
             this.tBarB = new System.Windows.Forms.TrackBar();
             this.tBarC = new System.Windows.Forms.TrackBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tBoxTstA = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnC)).BeginInit();
@@ -68,6 +66,7 @@
             this.numUpDwnB.Size = new System.Drawing.Size(120, 27);
             this.numUpDwnB.TabIndex = 1;
             this.numUpDwnB.ValueChanged += new System.EventHandler(this.numUpDwnB_ValueChanged);
+            this.numUpDwnB.Leave += new System.EventHandler(this.numUpDwnB_Leave);
             // 
             // numUpDwnC
             // 
@@ -77,6 +76,7 @@
             this.numUpDwnC.Size = new System.Drawing.Size(120, 27);
             this.numUpDwnC.TabIndex = 2;
             this.numUpDwnC.ValueChanged += new System.EventHandler(this.numUpDwnC_ValueChanged);
+            this.numUpDwnC.Leave += new System.EventHandler(this.numUpDwnC_Leave);
             // 
             // tBoxA
             // 
@@ -171,28 +171,12 @@
             this.tBarC.TabIndex = 11;
             this.tBarC.ValueChanged += new System.EventHandler(this.tBarC_ValueChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(387, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 22);
-            this.textBox1.TabIndex = 12;
-            // 
-            // tBoxTstA
-            // 
-            this.tBoxTstA.Location = new System.Drawing.Point(37, 25);
-            this.tBoxTstA.Name = "tBoxTstA";
-            this.tBoxTstA.Size = new System.Drawing.Size(120, 22);
-            this.tBoxTstA.TabIndex = 13;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(545, 271);
-            this.Controls.Add(this.tBoxTstA);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tBarC);
             this.Controls.Add(this.tBarB);
             this.Controls.Add(this.tBarA);
@@ -235,8 +219,6 @@
         private System.Windows.Forms.TrackBar tBarA;
         private System.Windows.Forms.TrackBar tBarB;
         private System.Windows.Forms.TrackBar tBarC;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox tBoxTstA;
     }
 }
 
