@@ -10,6 +10,7 @@ namespace L.R._4_part2_C_
     {
         private int A, B, C;
         public System.EventHandler DataChanged;
+
         public Model()
         {
             A = Properties.Settings.Default.a;
@@ -24,6 +25,17 @@ namespace L.R._4_part2_C_
                 {
                     this.A = a;
                 }
+                else if (a>B && a<=C)
+                {
+                    this.A = a;
+                    this.B = a;
+                }
+                else if (a>B && a> C)
+                {
+                    this.A = a;
+                    this.B = a;
+                    this.C = a;
+                }
             }
             DataChanged.Invoke(this, null);
 
@@ -32,13 +44,8 @@ namespace L.R._4_part2_C_
         {
             if (0 <= b && b <= 100)
             {
-                if (b < A)
-                {
-                    this.A = A - (B - b);
-                    this.B = b;
-                    if (A < 0) A = 0;
-                }
-                else if (b <= C)
+            
+                if (b <= C && b >= A)
                 {
                     this.B = b;
                 }
@@ -64,17 +71,18 @@ namespace L.R._4_part2_C_
                 this.C = c;
             }
             DataChanged.Invoke(this, null);
-
         }
         public int getA() { return A; }
         public int getB() { return B; }
         public int getC() { return C; }
+
         public void save()
         {
             Properties.Settings.Default.a = A;
             Properties.Settings.Default.b = B;
             Properties.Settings.Default.c = C;
             Properties.Settings.Default.Save();
+
         }
     }
 }

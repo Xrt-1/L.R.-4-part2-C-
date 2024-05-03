@@ -35,6 +35,7 @@ namespace L.R._4_part2_C_
         private void numUpDwnA_ValueChanged(object sender, EventArgs e)
         {
             model.setA(((int)(numUpDwnA.Value)));
+            tBoxTstA.Text = numUpDwnA.Value.ToString();
         }
       
 
@@ -113,11 +114,7 @@ namespace L.R._4_part2_C_
             model.setA(tBarA.Value);
         }
 
-        private void tBarB_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void tBarB_ValueChanged(object sender, EventArgs e)
         {
             model.setB(tBarB.Value);
@@ -128,9 +125,13 @@ namespace L.R._4_part2_C_
             model.setC(tBarC.Value);
         }
 
-        private void tBarA_Scroll(object sender, EventArgs e)
+        private void numUpDwnA_Leave(object sender, EventArgs e)
         {
-
+            model.setA((int)(numUpDwnA.Value));
+            //int a = model.getA();
+            //numUpDwnA.Value = 0;
+            //numUpDwnA.Value = a;
+          
         }
     }
 }
